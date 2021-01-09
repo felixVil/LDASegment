@@ -14,8 +14,9 @@ MATLAB 2017a or newer.
 The parameters, defined in the paper and other important paths that has to be modified to run the code on your computer are concentrated in the KerasTracker/Tracker_Params.py.
 
 After modifying the Tracker_Params.py file you can:
-1.Run on a specific VOT video sequence. please update the sequence names in the KerasTracker/ Trackingmain.py script.  
-2.Run on DAVIS2016 video dataset (validation set), please run the KerasTracker/Trackingmain_VOS.py script.
+
+1.Run on a specific VOT video sequence. Please update the sequence names in the KerasTracker/ Trackingmain.py script.  
+2.Run on DAVIS2016 video dataset (validation set). Please run the KerasTracker/Trackingmain_VOS.py script.
 
 Both scripts produce result images with the tracking rect overlaid in the path specified in the "track_results_path" parameter.
 Debug plots are generated in the path specified in the "debug_images_path" parameter.
