@@ -27,7 +27,7 @@ def initialize(image_file_path, region_json_file):
     poly_array = np.array(region)
     if poly_array.size < 5: #case of rect
         poly_array = uf.convert_rect_to_real_poly(poly_array)
-    tracker_object = Tracker(uf.read_image(image_file_path), poly_array, **Tracker_params)
+    tracker_object = Tracker(uf.read_image(image_file_path), poly_array, None, **Tracker_params)
     is_end = False
     script_path = os.path.realpath(__file__)
     info_file_path = os.path.join(os.path.dirname(script_path), 'info.txt')

@@ -11,12 +11,13 @@ from SegmentationLogic import ZScoreCalculator
 
 class Tracker:
 
-    def __init__(self, initial_img, initial_poly_array, **tracker_args):
+    def __init__(self, initial_img, initial_poly_array, initial_mask, **tracker_args):
         for key, value in tracker_args.items():
             setattr(self, key, value)
         self.feature_map_nums_densenet = DenseNetDeconv.ARCHITECTURE_DICT[self.densenet_name]['feature_maps']
         self.feature_map_nums_vgg19 = VGGDeconv.ARCHITECTURE_DICT['feature_maps']
-        initial_mask = uf.create_initial_mask(initial_img, initial_poly_array)
+        if initial_poly_array is not None:
+            initial_mask = uf.create_initial_mask(initial_img, initial_poly_array)
         if uf.check_if_small_mask(initial_mask, self.small_mask_ratio):
             print('Small sized object!\n')
             self.input_shape = (160, 160, 3)

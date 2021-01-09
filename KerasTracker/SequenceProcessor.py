@@ -75,7 +75,7 @@ def do_all_preparations(sequence_name, result_path, debug_path, base_vot_path, p
     poly_array = polygon_matrix[0, :]
     image_paths = get_all_image_paths(sequence_path + 'color' + '/')
     handle_first_image(image_paths, result_path, poly_array)
-    test_tracker = Tracker(uf.read_image(image_paths[0]), poly_array, **params)
+    test_tracker = Tracker(uf.read_image(image_paths[0]), poly_array, None, **params)
     run_params_data = dict({'test_tracker': test_tracker, 'polygon_matrix': polygon_matrix, 'image_paths': image_paths
                                ,'result_path': result_path})
     Tracker_params['debug_images_path_temp'] = debug_path
