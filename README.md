@@ -16,7 +16,7 @@ The parameters, defined in the paper and other important paths that has to be mo
 After modifying the Tracker_Params.py file you can:
 
 1.Run on a specific VOT video sequence. Please update the sequence names in the KerasTracker/ Trackingmain.py script.  
-2.Run on DAVIS2016 video dataset (validation set). Please run the KerasTracker/Trackingmain_VOS.py script.  Please update the path to the validation set (or other set) list of sequences in the "filename" in the script. 
+2.Run on DAVIS2016 video dataset (validation set). Please run the KerasTracker/Trackingmain_VOS.py script.  Please update the path to the validation set (or other set) list of sequences in the "validation_filepath" in the script. 
 
 Both scripts produce result images with the tracking rect overlaid in the path specified in the "track_results_path" parameter.
 Debug plots are generated in the path specified in the "debug_images_path" parameter.

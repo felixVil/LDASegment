@@ -7,8 +7,8 @@ import datetime
 os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 #get only validation sequences!!!#
-filename = 'D:/Felix/DAVIS Stuff/DAVIS/ImageSets/480p/val.txt'
-with open(filename) as f:
+validation_filepath = 'D:/Felix/DAVIS Stuff/DAVIS/ImageSets/480p/val.txt'
+with open(validation_filepath) as f:
     content = f.readlines()
 
 sequences = [line.split('/')[3] for line in content]
