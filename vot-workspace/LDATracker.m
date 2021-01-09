@@ -1,8 +1,10 @@
 function LDATracker
 global kerasTrackerPath;
 global pythonInterpreterPath;
+
 pythonInterpreterPath = 'D:\\Felix\\WPy64-3680\\scripts\\python.bat';
-kerasTrackerPath = 'D:\Felix\Aharon Bar Hillel Repo\Sandboxes\Felix\KerasTracker';
+kerasTrackerPath = 'D:\Felix\LDASegment\KerasTracker';
+
 regionJsonFileInit = fullfile(kerasTrackerPath, 'regionData.json');
 regionJsonFileUpdate = fullfile(kerasTrackerPath, 'regionDataUpdate.json'); 
 while (exist(regionJsonFileUpdate, 'file') == 2);end %Wait for previous run to finish.
