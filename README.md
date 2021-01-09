@@ -30,6 +30,7 @@ Please update the vot-toolkit path in the begining of each file (addpath...) to 
 In addition in LDATracker.m update the folowing path variables:
 
 pythonInterpreterPath to point to your python interpreter.
+
 kerasTrackerPath to point to your KerasTracker folder.
 
 ## Auxiliary Scripts
