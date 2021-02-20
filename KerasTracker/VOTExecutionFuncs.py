@@ -40,6 +40,7 @@ def initialize(image_file_path, region_json_file):
         if "EndOfSequence" in data:
             is_end = True
         else:
+            is_exception = False
             prev_image_file_path = image_file_path
             image_file_path = data
             print(image_file_path)
@@ -48,13 +49,19 @@ def initialize(image_file_path, region_json_file):
                 continue
             frame_number_string = os.path.basename(image_file_path).split('.')[0]
             frame_number = int(frame_number_string)
-            new_image = uf.read_image(image_file_path)
-            mask_img = tracker_object.step(new_image,frame_number)
-            region_rect = uf.get_region_dict_from_mask(mask_img)
-            if _is_on_all_image_masking(region_rect, mask_img):
-                region = _handle_all_image_masking()
-            else:
-                region = _get_rotated_rect_from_mask(mask_img)
+            try:
+                new_image = uf.read_image(image_file_path)
+                mask_img = tracker_object.step(new_image,frame_number)
+                region_rect = uf.get_region_dict_from_mask(mask_img)
+            except:
+                print("An exception occurred- simulating corner masking to fail\n")
+                region_rect = _handle_all_image_masking()
+                is_exception = True
+            if not is_exception:
+                if _is_on_all_image_masking(region_rect, mask_img):
+                    region = _handle_all_image_masking()
+                else:
+                    region = _get_rotated_rect_from_mask(mask_img)
             json_file_4_update = region_json_file.split('.')[0] + 'Update' + '.json'
             print('update json file is:')
             print(json_file_4_update)#debug print!!!
