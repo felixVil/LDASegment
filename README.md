@@ -33,6 +33,8 @@ pythonInterpreterPath to point to your python interpreter.
 
 kerasTrackerPath to point to your KerasTracker folder.
 
+The raw results of this algorithm on VOT2018 sequences is given in "vot-workspace/results/LDASegment".
+
 ## Auxiliary Scripts
 To create result/debug videos out of the result images out of your runs on VOT sequences. you can use the CreateTrackingVids.m MATLAB script.
 
